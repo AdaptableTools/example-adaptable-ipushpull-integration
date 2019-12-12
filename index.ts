@@ -14,6 +14,22 @@ import {
   BlotterApi
 } from "@adaptabletools/adaptableblotter/types";
 
+// this configuration needs to be done in a sync way, here
+// as ipushpull config system is a bit awkward, and won't pick up
+// all those configs if configured later
+
+ipushpull.config.set({
+  api_url: "https://www.ipushpull.com/api/1.0",
+  ws_url: "https://www.ipushpull.com",
+  web_url: "https://www.ipushpull.com",
+  docs_url: "https://docs.ipushpull.com",
+  storage_prefix: "ipp_local",
+  api_key: "", // this can safely be an an empty string, as the AdaptableBlotter uses it's own ipushpull api key
+  api_secret: "", // this can safely be an an empty string, as the AdaptableBlotter uses it's own ipushpull api secret
+  transport: "polling",
+  hsts: false // strict cors policy
+});
+
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
   {
@@ -35,27 +51,15 @@ const columnDefs = [
   }
 ];
 
-ipushpull.config.set({
-  api_url: "https://www.ipushpull.com/api/1.0",
-  ws_url: "https://www.ipushpull.com",
-  web_url: "https://www.ipushpull.com",
-  docs_url: "https://docs.ipushpull.com",
-  storage_prefix: "ipp_local",
-  api_key: process.env.IPUSHPULL_API_KEY as string,
-  api_secret: process.env.IPUSHPULL_API_SECRET as string,
-  transport: "polling",
-  hsts: false // strict cors policy
-});
-
 let demoConfig: PredefinedConfig = {
   Dashboard: {
     VisibleToolbars: ["QuickSearch", "Export", "Layout", "AdvancedSearch"]
   },
   Partner: {
     iPushPull: {
-      iPushPullConfig: ipushpull,
-      Username: process.env.IPUSHPULL_USERNAME as string,
-      Password: process.env.IPUSHPULL_PASSWORD as string
+      iPushPullInstance: ipushpull,
+      Username: (process.env.IPUSHPULL_USERNAME || "") as string,
+      Password: (process.env.IPUSHPULL_PASSWORD || "") as string
     }
   }
 };

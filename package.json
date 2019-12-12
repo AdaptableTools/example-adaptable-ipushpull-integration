@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptableblotter-ipushpull-integration#readme",
   "dependencies": {
-    "@adaptabletools/adaptableblotter": "^5.2.2-canary.2",
+    "@adaptabletools/adaptableblotter": "5.2.2-canary.11",
     "ag-grid-community": "21",
     "ag-grid-enterprise": "21",
     "ipushpull-js": "^2.18.12"

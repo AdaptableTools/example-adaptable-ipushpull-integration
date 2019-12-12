@@ -10,16 +10,14 @@ Run `npm install` (or `yarn`), depending on what tool you're using.
 
 ## Running for development
 
-Before running, please make sure you create a `.env` file, with the following contents:
+Before running, if you want to prefill your ipushpull username & password in the demo, you can create a `.env` file, with the following contents:
 
 ```sh
-IPUSHPULL_API_KEY="..." # your ipushpull api key
-IPUSHPULL_API_SECRET="..." # your ipushpull api secret
 IPUSHPULL_USERNAME="" # optional, can leave as empty string - if passed, will prefill your username in the IPushPull login dialog
 IPUSHPULL_PASSWORD="" # optional, can leave as empty string - if passed, will prefill your password in the IPushPull login dialog
 ```
 
-After creating the `.env` file, you can run the project by executing the following command
+You can run the project by executing the following command
 
 ```sh
 $ npm run dev
