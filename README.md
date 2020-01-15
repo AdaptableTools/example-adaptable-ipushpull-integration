@@ -1,4 +1,4 @@
-# AdaptableBlotter IPushPull integration
+# AdaptableBlotter iPushPull integration
 
 This demo is using TypeScript for convenience - but it could easily be just JavaScript.
 
