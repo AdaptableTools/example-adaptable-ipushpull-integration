@@ -10,7 +10,7 @@ node_modules/
 **/package-lock.json
 package-lock.json
 
-/packages/adaptableblotter/apidoc
+/packages/adaptable/apidoc
 /apidoc
 yarn.lock
 dist

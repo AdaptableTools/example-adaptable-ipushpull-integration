@@ -1,4 +1,4 @@
-import AdaptableBlotter from "@adaptabletools/adaptable/agGrid";
+import Adaptable from "@adaptabletools/adaptable/agGrid";
 import ipushpull from "ipushpull-js";
 
 import "@adaptabletools/adaptable/index.css";
@@ -26,8 +26,8 @@ ipushpull.config.set({
   web_url: "https://www.ipushpull.com",
   docs_url: "https://docs.ipushpull.com",
   storage_prefix: "ipp_local",
-  api_key: "", // this can safely be an an empty string, as the AdaptableBlotter uses it's own ipushpull api key
-  api_secret: "", // this can safely be an an empty string, as the AdaptableBlotter uses it's own ipushpull api secret
+  api_key: "", // this can safely be an an empty string, as the Adaptable uses it's own ipushpull api key
+  api_secret: "", // this can safely be an an empty string, as the Adaptable uses it's own ipushpull api secret
   transport: "polling",
   hsts: false // strict cors policy
 });
@@ -92,9 +92,9 @@ const adaptableOptions: AdaptableOptions = {
   predefinedConfig: demoConfig
 };
 
-const api: AdaptableApi = AdaptableBlotter.init(adaptableOptions);
+const api: AdaptableApi = Adaptable.init(adaptableOptions);
 
-// we simulate server loading - so when the blotter is ready
+// we simulate server loading when ready
 api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
   import("./orders.json")
