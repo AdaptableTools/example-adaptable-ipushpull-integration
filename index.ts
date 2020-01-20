@@ -1,18 +1,20 @@
-import AdaptableBlotter from "@adaptabletools/adaptableblotter/agGrid";
+import AdaptableBlotter from "@adaptabletools/adaptable/agGrid";
 import ipushpull from "ipushpull-js";
 
-import "@adaptabletools/adaptableblotter/index.css";
-import "@adaptabletools/adaptableblotter/themes/dark.css";
+import "@adaptabletools/adaptable/index.css";
+import "@adaptabletools/adaptable/themes/dark.css";
 
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
-import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+import finance from "@adaptabletools/adaptable-plugin-finance";
+
+import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 
 import {
-  AdaptableBlotterOptions,
+  AdaptableOptions,
   PredefinedConfig,
-  BlotterApi
-} from "@adaptabletools/adaptableblotter/types";
+  AdaptableApi
+} from "@adaptabletools/adaptable/types";
 
 // this configuration needs to be done in a sync way, here
 // as ipushpull config system is a bit awkward, and won't pick up
@@ -53,21 +55,27 @@ const columnDefs = [
 
 let demoConfig: PredefinedConfig = {
   Dashboard: {
-    VisibleToolbars: ["QuickSearch", "Export", "Layout", "AdvancedSearch"]
+    VisibleToolbars: [
+      "IPushPull",
+      "QuickSearch",
+      "Export",
+      "Layout",
+      "AdvancedSearch"
+    ]
   },
-  Partner: {
-    iPushPull: {
-      iPushPullInstance: ipushpull,
-      Username: (process.env.IPUSHPULL_USERNAME || "") as string,
-      Password: (process.env.IPUSHPULL_PASSWORD || "") as string
-    }
+
+  IPushPull: {
+    iPushPullInstance: ipushpull,
+    Username: (process.env.IPUSHPULL_USERNAME || "") as string,
+    Password: (process.env.IPUSHPULL_PASSWORD || "") as string
   }
 };
 
-const blotterOptions: AdaptableBlotterOptions = {
+const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
-  blotterId: "IPushPull Integration",
+  adaptableId: "IPushPull Integration Demo",
+  plugins: [finance()],
 
   vendorGrid: {
     columnDefs,
@@ -84,10 +92,10 @@ const blotterOptions: AdaptableBlotterOptions = {
   predefinedConfig: demoConfig
 };
 
-const api: BlotterApi = AdaptableBlotter.init(blotterOptions);
+const api: AdaptableApi = AdaptableBlotter.init(adaptableOptions);
 
 // we simulate server loading - so when the blotter is ready
-api.eventApi.on("BlotterReady", () => {
+api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
   import("./orders.json")
     .then(data => data.default)
