@@ -8,7 +8,7 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
-  "author": "Adaptable",
+  "author": "JonnyAdaptableTools",
   "license": "ISC",
   "repository": {
     "type": "git",
