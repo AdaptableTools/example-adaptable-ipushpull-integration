@@ -1,6 +1,8 @@
-# AdapTable iPushPull Integration
+# iPushPull <> AdapTable Integration Example
 
-This demo is using TypeScript for convenience - but it could easily be just JavaScript.
+This demo shows how you can use ipushpull inside AdapTable.
+
+The code is using TypeScript for convenience - but it could easily be just JavaScript.
 
 ## Installation
 
@@ -39,7 +41,6 @@ Licences can be purchased individually, for a team (minimum 30 end-users), for a
 We can make a trial licence available for a short period of time to allow you to try out AdapTable for yourself.
 
 Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) for more information.
-
  
 ## Demo
 
