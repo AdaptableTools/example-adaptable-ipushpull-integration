@@ -1,11 +1,12 @@
 import Adaptable from "@adaptabletools/adaptable/agGrid";
-import ipushpull from "ipushpull-js";
 
 import "@adaptabletools/adaptable/index.css";
 import "@adaptabletools/adaptable/themes/dark.css";
-
+import ipp from "@adaptabletools/adaptable-plugin-ipushpull";
+import { IPushPullApi } from "@adaptabletools/adaptable/src/Api/IPushPullApi";
 import finance from "@adaptabletools/adaptable-plugin-finance";
 
+import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
@@ -13,44 +14,38 @@ import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 import {
   AdaptableOptions,
   PredefinedConfig,
-  AdaptableApi
+  AdaptableApi,
 } from "@adaptabletools/adaptable/types";
-
-// this configuration needs to be done in a sync way, here
-// as ipushpull config system is a bit awkward, and won't pick up
-// all those configs if configured later
-
-ipushpull.config.set({
-  api_url: "https://www.ipushpull.com/api/1.0",
-  ws_url: "https://www.ipushpull.com",
-  web_url: "https://www.ipushpull.com",
-  docs_url: "https://docs.ipushpull.com",
-  storage_prefix: "ipp_local",
-  api_key: "", // this can safely be an an empty string, as the Adaptable uses it's own ipushpull api key
-  api_secret: "", // this can safely be an an empty string, as the Adaptable uses it's own ipushpull api secret
-  transport: "polling",
-  hsts: false // strict cors policy
-});
 
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
   {
     field: "CompanyName",
 
-    type: "abColDefString"
+    type: "abColDefString",
   },
   {
     field: "ContactName",
-    type: "abColDefString"
+    type: "abColDefString",
   },
   {
     field: "Employee",
-    type: "abColDefString"
+    type: "abColDefString",
   },
   {
     field: "InvoicedCost",
-    type: "abColDefNumber"
-  }
+    type: "abColDefNumber",
+  },
+];
+
+const rowData: any[] = [
+  {
+    OrderId: 1,
+    CompanyName: "IBM",
+    ContactName: "Joe Bloggs",
+    Employee: "Mary Shields",
+    InvoicedCost: 32.53,
+  },
 ];
 
 let demoConfig: PredefinedConfig = {
@@ -60,50 +55,69 @@ let demoConfig: PredefinedConfig = {
       "QuickSearch",
       "Export",
       "Layout",
-      "AdvancedSearch"
-    ]
+      "AdvancedSearch",
+    ],
   },
-
-  IPushPull: {
-    iPushPullInstance: ipushpull,
-    Username: (process.env.IPUSHPULL_USERNAME || "") as string,
-    Password: (process.env.IPUSHPULL_PASSWORD || "") as string
-  }
 };
 
 const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
   adaptableId: "IPushPull Integration Demo",
-  plugins: [finance()],
 
+  plugins: [
+    finance(),
+    ipp({
+      throttleTime: 5000,
+      includeSystemReports: true,
+      autoLogin: true,
+      ippConfig: {
+        api_secret: "]provide your own here]",
+        api_key: "[provide your own here]",
+        api_url: "https://www.ipushpull.com/api/1.0",
+        ws_url: "https://www.ipushpull.com",
+        web_url: "https://www.ipushpull.com",
+        docs_url: "https://docs.ipushpull.com",
+        storage_prefix: "ipp_local",
+        transport: "polling",
+        hsts: false, // strict cors policy
+      },
+    }),
+  ],
+  // vendorGrid: { ...gridOptions, modules: AllEnterpriseModules },
   vendorGrid: {
     columnDefs,
+    rowData,
     columnTypes: {
       abColDefNumber: {},
       abColDefString: {},
       abColDefBoolean: {},
       abColDefDate: {},
       abColDefNumberArray: {},
-      abColDefObject: {}
+      abColDefObject: {},
     },
-    rowData: null
+    // rowData: null,
+    modules: AllEnterpriseModules,
   },
-  predefinedConfig: demoConfig
+  predefinedConfig: demoConfig,
 };
 
-const api: AdaptableApi = Adaptable.init(adaptableOptions);
+Adaptable.init(adaptableOptions).then((adaptableApi) => {
+  const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getPluginApi(
+    "ipushpull"
+  );
 
-// we simulate server loading when ready
-api.eventApi.on("AdaptableReady", () => {
-  // we load the json orders
-  import("./orders.json")
-    .then(data => data.default)
-    .then(data => {
-      // add an extra timeout
-      setTimeout(() => {
-        // and then set the correct row data
-        api.gridApi.getVendorGrid().api.setRowData(data);
-      }, 500);
-    });
+  // we simulate server loading when ready
+  adaptableApi.eventApi.on("AdaptableReady", () => {
+    // we load the json orders
+    import("./orders.json")
+      .then((data) => data.default)
+      .then((data) => {
+        // add an extra timeout
+        setTimeout(() => {
+          // and then set the correct row data
+          adaptableApi.gridApi.getVendorGrid().api.setRowData(data);
+        }, 500);
+      });
+  });
 });
