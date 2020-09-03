@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^7.0.0-canary.19",
-    "@adaptabletools/adaptable-plugin-finance": "^7.0.0-canary.19",
-    "@adaptabletools/adaptable-plugin-ipushpull": "^7.0.0-canary.19",
+    "@adaptabletools/adaptable": "^7.0.0-canary.29",
+    "@adaptabletools/adaptable-plugin-finance": "^7.0.0-canary.29",
+    "@adaptabletools/adaptable-plugin-ipushpull": "^7.0.0-canary.29",
     "@ag-grid-community/all-modules": "^23.2.1",
     "@ag-grid-enterprise/all-modules": "^23.2.1",
     "ipushpull-js": "^2.18.12"

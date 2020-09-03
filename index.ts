@@ -50,12 +50,11 @@ const rowData: any[] = [
 
 let demoConfig: PredefinedConfig = {
   Dashboard: {
-    VisibleToolbars: [
-      "IPushPull",
-      "QuickSearch",
-      "Export",
-      "Layout",
-      "AdvancedSearch",
+    Tabs: [
+      {
+        Name: "Dashboard Toolbars",
+        Toolbars: ["Layout", "IPushPull", "Export"],
+      },
     ],
   },
 };
@@ -63,7 +62,7 @@ let demoConfig: PredefinedConfig = {
 const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
-  adaptableId: "IPushPull Integration Demo",
+  adaptableId: "IPushPull Integration Demo.",
 
   plugins: [
     finance(),
@@ -72,7 +71,7 @@ const adaptableOptions: AdaptableOptions = {
       includeSystemReports: true,
       autoLogin: true,
       ippConfig: {
-        api_secret: "]provide your own here]",
+        api_secret: "[provide your own here]",
         api_key: "[provide your own here]",
         api_url: "https://www.ipushpull.com/api/1.0",
         ws_url: "https://www.ipushpull.com",
