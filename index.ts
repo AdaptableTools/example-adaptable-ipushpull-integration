@@ -5,6 +5,7 @@ import "@adaptabletools/adaptable/themes/dark.css";
 import ipp from "@adaptabletools/adaptable-plugin-ipushpull";
 import { IPushPullApi } from "@adaptabletools/adaptable/src/Api/IPushPullApi";
 import finance from "@adaptabletools/adaptable-plugin-finance";
+import charts from "@adaptabletools/adaptable-plugin-charts";
 
 import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
@@ -62,17 +63,16 @@ let demoConfig: PredefinedConfig = {
 const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
-  adaptableId: "IPushPull Integration Demo.",
+  adaptableId: "IPushPull Integration Demo",
 
   plugins: [
     finance(),
+    charts(),
     ipp({
       throttleTime: 5000,
       includeSystemReports: true,
       autoLogin: true,
       ippConfig: {
-        api_secret: "[provide your own here]",
-        api_key: "[provide your own here]",
         api_url: "https://www.ipushpull.com/api/1.0",
         ws_url: "https://www.ipushpull.com",
         web_url: "https://www.ipushpull.com",
@@ -87,6 +87,7 @@ const adaptableOptions: AdaptableOptions = {
   vendorGrid: {
     columnDefs,
     rowData,
+    enableRangeSelection: true,
     columnTypes: {
       abColDefNumber: {},
       abColDefString: {},
