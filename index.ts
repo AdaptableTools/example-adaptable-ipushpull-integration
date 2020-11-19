@@ -35,6 +35,7 @@ const columnDefs = [
   },
   {
     field: "InvoicedCost",
+    editable: true,
     type: "abColDefNumber",
   },
 ];
