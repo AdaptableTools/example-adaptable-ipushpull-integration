@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^7.2.1",
-    "@adaptabletools/adaptable-plugin-finance": "^7.2.1",
-    "@adaptabletools/adaptable-plugin-charts": "^7.2.1",
-    "@adaptabletools/adaptable-plugin-ipushpull": "^7.2.1",
+    "@adaptabletools/adaptable": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-finance": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-charts": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-ipushpull": "^7.3.1",
     "@ag-grid-community/all-modules": "^24.1.0",
     "@ag-grid-enterprise/all-modules": "^24.1.0",
     "ipushpull-js": "^2.18.12"
