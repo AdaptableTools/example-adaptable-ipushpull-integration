@@ -1,0 +1,34 @@
+{
+  "name": "example-adaptable-ipushpull-integration",
+  "private": true,
+  "description": "Demo of the Adaptable + IPushPull",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "JonnyAdaptableTools",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaptableTools/example-adaptable-ipushpull-integration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration/issues"
+  },
+  "homepage": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration#readme",
+  "dependencies": {
+    "@adaptabletools/adaptable": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-finance": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-charts": "^7.3.1",
+    "@adaptabletools/adaptable-plugin-ipushpull": "^7.3.1",
+    "@ag-grid-community/all-modules": "^24.1.0",
+    "@ag-grid-enterprise/all-modules": "^24.1.0",
+    "ipushpull-js": "^2.18.12"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3",
+    "parcel-bundler": "^1.12.4"
+  }
+}
