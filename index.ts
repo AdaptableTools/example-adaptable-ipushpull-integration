@@ -92,10 +92,7 @@ const adaptableOptions: AdaptableOptions = {
 };
 
 Adaptable.init(adaptableOptions).then((adaptableApi) => {
-  const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getPluginApi(
-    "ipushpull"
-  );
-
+  const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getipushpullPluginApi();
   // we simulate server loading when ready
   adaptableApi.eventApi.on("AdaptableReady", () => {
     // we load the json orders
