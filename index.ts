@@ -5,7 +5,6 @@ import "@adaptabletools/adaptable/themes/dark.css";
 import ipp from "@adaptabletools/adaptable-plugin-ipushpull";
 import { IPushPullApi } from "@adaptabletools/adaptable/src/Api/IPushPullApi";
 import finance from "@adaptabletools/adaptable-plugin-finance";
-import charts from "@adaptabletools/adaptable-plugin-charts";
 
 import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
@@ -68,7 +67,6 @@ const adaptableOptions: AdaptableOptions = {
 
   plugins: [
     finance(),
-    charts(),
     ipp({
       throttleTime: 5000,
       includeSystemReports: true,
@@ -84,13 +82,12 @@ const adaptableOptions: AdaptableOptions = {
       },
     }),
   ],
-  // vendorGrid: { ...gridOptions, modules: AllEnterpriseModules },
-  vendorGrid: {
+  gridOptions: {
     columnDefs,
     rowData,
     enableRangeSelection: true,
-    modules: AllEnterpriseModules,
   },
+  modules: AllEnterpriseModules,
   predefinedConfig: demoConfig,
 };
 
