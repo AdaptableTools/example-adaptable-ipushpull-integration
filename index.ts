@@ -102,7 +102,7 @@ Adaptable.init(adaptableOptions).then((adaptableApi) => {
         // add an extra timeout
         setTimeout(() => {
           // and then set the correct row data
-          adaptableApi.gridApi.getVendorGrid().api.setRowData(data);
+          adaptableApi.gridApi.setGridData(data);
         }, 500);
       });
   });
