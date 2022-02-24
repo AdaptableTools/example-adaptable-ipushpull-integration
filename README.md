@@ -41,10 +41,6 @@ We can make a trial licence available for a short period of time to allow you to
 
 Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) for more information.
 
-## Demo
-
-To see AdapTable in action visit our [Demo Site](https://demo.adaptabletools.com). Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable (using dummy data sets).
-
 ## Help
 
 Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://docs.adaptabletools.com).
