@@ -58,6 +58,27 @@ let demoConfig: PredefinedConfig = {
       },
     ],
   },
+  Export: {
+    Revision: Date.now(),
+    Reports: [
+      {
+        Name: "Invoice greater than 500",
+        ReportColumnScope: "AllColumns",
+        ReportRowScope: "ExpressionRows",
+        Query: {
+          BooleanExpression: "[InvoicedCost] > 500",
+        },
+      },
+      {
+        Name: "Wilman Kala Contracts",
+        ReportColumnScope: "AllColumns",
+        ReportRowScope: "ExpressionRows",
+        Query: {
+          BooleanExpression: '[CompanyName] = "Wilman Kala"',
+        },
+      },
+    ],
+  },
 };
 
 const adaptableOptions: AdaptableOptions = {
@@ -91,8 +112,11 @@ const adaptableOptions: AdaptableOptions = {
   predefinedConfig: demoConfig,
 };
 
+console.log({ demoConfig });
+
 Adaptable.init(adaptableOptions).then((adaptableApi) => {
-  const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getipushpullPluginApi();
+  const ipushpullApi: IPushPullApi =
+    adaptableApi.pluginsApi.getipushpullPluginApi();
   // we simulate server loading when ready
   adaptableApi.eventApi.on("AdaptableReady", () => {
     // we load the json orders
