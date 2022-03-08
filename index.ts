@@ -85,6 +85,7 @@ const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
   adaptableId: "IPushPull Integration Demo",
+  licenseKey: process.env.REACT_APP_ADAPTABLE_LICENSE_KEY,
 
   plugins: [
     finance(),
