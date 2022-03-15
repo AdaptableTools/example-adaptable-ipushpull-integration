@@ -6,7 +6,7 @@ The code is using TypeScript for convenience - but it could easily be just JavaS
 
 ## Installation
 
-NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://docs.adaptabletools.com/learn/dev-guide-getting-started).
+NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://docs.adaptabletools.com/guide/dev-guide-getting-started).
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
 
