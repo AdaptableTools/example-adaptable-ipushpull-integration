@@ -6,7 +6,7 @@ import ipp from "@adaptabletools/adaptable-plugin-ipushpull";
 import { IPushPullApi } from "@adaptabletools/adaptable/src/Api/IPushPullApi";
 import finance from "@adaptabletools/adaptable-plugin-finance";
 
-import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
+import { AllEnterpriseModules, ColDef } from "@ag-grid-enterprise/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
@@ -17,7 +17,7 @@ import {
   AdaptableApi,
 } from "@adaptabletools/adaptable/types";
 
-const columnDefs = [
+const columnDefs: ColDef[] = [
   { field: "OrderId", type: "abColDefNumber" },
   {
     field: "CompanyName",
@@ -106,6 +106,13 @@ const adaptableOptions: AdaptableOptions = {
   ],
   gridOptions: {
     columnDefs,
+    defaultColDef: {
+      resizable: true,
+      sortable: true,
+      editable: true,
+      filter: true,
+      floatingFilter: true,
+    },
     rowData,
     enableRangeSelection: true,
   },
