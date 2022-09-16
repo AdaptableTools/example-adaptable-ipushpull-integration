@@ -6,16 +6,45 @@ import ipp from "@adaptabletools/adaptable-plugin-ipushpull";
 import { IPushPullApi } from "@adaptabletools/adaptable/src/Api/IPushPullApi";
 import finance from "@adaptabletools/adaptable-plugin-finance";
 
-import { AllEnterpriseModules, ColDef } from "@ag-grid-enterprise/all-modules";
-import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
+import { ColDef, Module } from "@ag-grid-community/core";
+import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
+import { SideBarModule } from "@ag-grid-enterprise/side-bar";
+import { ColumnsToolPanelModule } from "@ag-grid-enterprise/column-tool-panel";
+import { FiltersToolPanelModule } from "@ag-grid-enterprise/filter-tool-panel";
+import { StatusBarModule } from "@ag-grid-enterprise/status-bar";
+import { MenuModule } from "@ag-grid-enterprise/menu";
+import { RangeSelectionModule } from "@ag-grid-enterprise/range-selection";
+import { RichSelectModule } from "@ag-grid-enterprise/rich-select";
+import { ExcelExportModule } from "@ag-grid-enterprise/excel-export";
+import { GridChartsModule } from "@ag-grid-enterprise/charts";
+import { SparklinesModule } from "@ag-grid-enterprise/sparklines";
+import { RowGroupingModule } from "@ag-grid-enterprise/row-grouping";
+import { ClipboardModule } from "@ag-grid-enterprise/clipboard";
+import "@ag-grid-community/core/dist/styles/ag-grid.css";
+import "@ag-grid-community/core/dist/styles/ag-theme-balham.css";
+import "@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css";
 
 import {
   AdaptableOptions,
   PredefinedConfig,
   AdaptableApi,
 } from "@adaptabletools/adaptable/types";
+
+const RECOMMENDED_MODULES: Module[] = [
+  ClientSideRowModelModule,
+  SideBarModule,
+  ColumnsToolPanelModule,
+  FiltersToolPanelModule,
+  StatusBarModule,
+  MenuModule,
+  RangeSelectionModule,
+  RichSelectModule,
+  ExcelExportModule,
+  GridChartsModule,
+  SparklinesModule,
+  RowGroupingModule,
+  ClipboardModule,
+];
 
 const columnDefs: ColDef[] = [
   { field: "OrderId", type: "abColDefNumber" },
@@ -116,26 +145,28 @@ const adaptableOptions: AdaptableOptions = {
     rowData,
     enableRangeSelection: true,
   },
-  modules: AllEnterpriseModules,
+
   predefinedConfig: demoConfig,
 };
 
 console.log({ demoConfig });
 
-Adaptable.init(adaptableOptions).then((adaptableApi) => {
-  const ipushpullApi: IPushPullApi =
-    adaptableApi.pluginsApi.getipushpullPluginApi();
-  // we simulate server loading when ready
-  adaptableApi.eventApi.on("AdaptableReady", () => {
-    // we load the json orders
-    import("./orders.json")
-      .then((data) => data.default)
-      .then((data) => {
-        // add an extra timeout
-        setTimeout(() => {
-          // and then set the correct row data
-          adaptableApi.gridApi.setGridData(data);
-        }, 500);
-      });
-  });
-});
+Adaptable.init(adaptableOptions, { agGridModules: RECOMMENDED_MODULES }).then(
+  (adaptableApi) => {
+    const ipushpullApi: IPushPullApi =
+      adaptableApi.pluginsApi.getipushpullPluginApi();
+    // we simulate server loading when ready
+    adaptableApi.eventApi.on("AdaptableReady", () => {
+      // we load the json orders
+      import("./orders.json")
+        .then((data) => data.default)
+        .then((data) => {
+          // add an extra timeout
+          setTimeout(() => {
+            // and then set the correct row data
+            adaptableApi.gridApi.setGridData(data);
+          }, 500);
+        });
+    });
+  }
+);
