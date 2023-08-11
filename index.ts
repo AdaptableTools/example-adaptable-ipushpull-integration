@@ -4,7 +4,7 @@ import '@ag-grid-community/styles/ag-theme-balham.css';
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
 
-import { Module, ColDef } from '@ag-grid-community/core';
+import {Module, ColDef, GridOptions} from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -22,7 +22,7 @@ import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
 import ipp from '@adaptabletools/adaptable-plugin-ipushpull';
 import { IPushPullApi } from '@adaptabletools/adaptable/src/Api/IPushPullApi';
-import finance from '@adaptabletools/adaptable-plugin-finance';
+
 
 import { AdaptableOptions, PredefinedConfig } from '@adaptabletools/adaptable/types';
 
@@ -97,7 +97,6 @@ const adaptableOptions: AdaptableOptions = {
   licenseKey: process.env.REACT_APP_ADAPTABLE_LICENSE_KEY,
 
   plugins: [
-    finance(),
     ipp({
       throttleTime: 5000,
       includeSystemReports: true,
@@ -113,22 +112,23 @@ const adaptableOptions: AdaptableOptions = {
       },
     }),
   ],
-  gridOptions: {
-    columnDefs,
-    defaultColDef: {
-      resizable: true,
-      sortable: true,
-      editable: true,
-      filter: true,
-      floatingFilter: true,
-    },
-    rowData,
-    enableRangeSelection: true,
-  },
   predefinedConfig: demoConfig,
 };
 
-export const agGridModules: Module[] = [
+const gridOptions:GridOptions= {
+  columnDefs,
+      defaultColDef: {
+    resizable: true,
+        sortable: true,
+        editable: true,
+        filter: true,
+        floatingFilter: true,
+  },
+  rowData,
+      enableRangeSelection: true,
+}
+
+export const modules: Module[] = [
   ClientSideRowModelModule,
   SideBarModule,
   ColumnsToolPanelModule,
@@ -144,7 +144,7 @@ export const agGridModules: Module[] = [
   ClipboardModule,
 ];
 
-Adaptable.init(adaptableOptions, { agGridModules }).then((adaptableApi) => {
+Adaptable.init(adaptableOptions, { modules,gridOptions }).then((adaptableApi) => {
   const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getipushpullPluginApi();
   // we simulate server loading when ready
   adaptableApi.eventApi.on('AdaptableReady', () => {
