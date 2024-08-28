@@ -4,7 +4,7 @@ import '@ag-grid-community/styles/ag-theme-balham.css';
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
 
-import {Module, ColDef, GridOptions} from '@ag-grid-community/core';
+import { Module, ColDef, GridOptions } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -22,7 +22,6 @@ import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
 import Adaptable from '@adaptabletools/adaptable/agGrid';
 import ipp from '@adaptabletools/adaptable-plugin-ipushpull';
 import { IPushPullApi } from '@adaptabletools/adaptable/src/Api/IPushPullApi';
-
 
 import { AdaptableOptions, PredefinedConfig } from '@adaptabletools/adaptable/types';
 
@@ -115,18 +114,18 @@ const adaptableOptions: AdaptableOptions = {
   predefinedConfig: demoConfig,
 };
 
-const gridOptions:GridOptions= {
+const gridOptions: GridOptions = {
   columnDefs,
-      defaultColDef: {
+  defaultColDef: {
     resizable: true,
-        sortable: true,
-        editable: true,
-        filter: true,
-        floatingFilter: true,
+    sortable: true,
+    editable: true,
+    filter: true,
+    floatingFilter: true,
   },
   rowData,
-      enableRangeSelection: true,
-}
+  enableRangeSelection: true,
+};
 
 export const modules: Module[] = [
   ClientSideRowModelModule,
@@ -144,7 +143,7 @@ export const modules: Module[] = [
   ClipboardModule,
 ];
 
-Adaptable.init(adaptableOptions, { modules,gridOptions }).then((adaptableApi) => {
+Adaptable.init(adaptableOptions, { modules, gridOptions }).then((adaptableApi) => {
   const ipushpullApi: IPushPullApi = adaptableApi.pluginsApi.getipushpullPluginApi();
   // we simulate server loading when ready
   adaptableApi.eventApi.on('AdaptableReady', () => {
@@ -155,7 +154,7 @@ Adaptable.init(adaptableOptions, { modules,gridOptions }).then((adaptableApi) =>
         // add an extra timeout
         setTimeout(() => {
           // and then set the correct row data
-          adaptableApi.gridApi.setGridData(data);
+          adaptableApi.gridApi.addGridData(data);
         }, 500);
       });
   });

@@ -4,6 +4,14 @@ This demo shows how you can use ipushpull inside AdapTable.
 
 The code is using TypeScript for convenience - but it could easily be just JavaScript.
 
+## Versions and Dependencies
+
+The demo is built using these key packages:
+
+- [AdapTable](https://docs.adaptabletools.com/) version 19
+- [AdapTable IPushPull Plugin](https://www.npmjs.com/package/@adaptabletools/adaptable-plugin-ipushpull) version 19
+- [AG Grid](https://www.ag-grid.com) version 32.1
+
 ## Installation
 
 NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://docs.adaptabletools.com/guide/dev-guide-getting-started).
