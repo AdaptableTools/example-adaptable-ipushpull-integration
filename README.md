@@ -8,13 +8,13 @@ The code is using TypeScript for convenience - but it could easily be just JavaS
 
 The demo is built using these key packages:
 
-- [AdapTable](https://docs.adaptabletools.com/) version 19
+- [AdapTable](https://www.adaptabletools.com) version 19
 - [AdapTable IPushPull Plugin](https://www.npmjs.com/package/@adaptabletools/adaptable-plugin-ipushpull) version 19
 - [AG Grid](https://www.ag-grid.com) version 32.1
 
 ## Installation
 
-NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://docs.adaptabletools.com/guide/dev-guide-getting-started).
+NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://www.adaptabletools.com/docs/dev-guide-getting-started).
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
 
@@ -41,7 +41,7 @@ Any change you make in your sources will trigger a browser reload, since parcelj
 
 ## Licences
 
-An AdapTable Licence provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
+An [AdapTable Licence](https://www.adaptabletools.com/buy/buying-adaptable-licensing) provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
 
 Licences can be purchased individually, for a team, for an organisation or for integration into software for onward sale.
 
@@ -51,13 +51,9 @@ Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) for
 
 ## Help
 
-Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://docs.adaptabletools.com).  
+Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://www.adaptabletools.com/docs).  
 
 Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable.
-
-## Demo
-
-To see AdapTable in action visit our [Demo Site](https://www.adaptabletools.com/demos) which contains a few larger demos.
 
 ## More Information
 
