@@ -14,7 +14,7 @@ The demo is built using these key packages:
 
 ## Installation
 
-NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://www.adaptabletools.com/docs/dev-guide-getting-started).
+NOTE: In order to be able to run `npm install`, you need to follow the [AdapTable installation instructions](https://www.adaptabletools.com/docs/getting-started-installation).
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
 
