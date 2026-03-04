@@ -1,0 +1,28 @@
+export const rowData: any[] = [
+    {
+      OrderId: 11142,
+      CustomerReference: 'MEREP',
+      CompanyName: 'Mère Paillarde',
+      ContactName: 'Jean Fresnière',
+      Employee: 'Michael Suyama',
+      InvoicedCost: 855.45,
+      ItemCount: 10,
+      ChangeLastOrder: 2,
+      ItemCost: 95.05,
+      OrderCost: 950.5,
+      PackageCost: 12.7,
+      OrderDate: 1549494000000,
+      RequiredDate: 1551913200000,
+      ShippedDate: 1549753200000,
+      ShipVia: 'Federal Shipping',
+      Freight: 4.07,
+      ShipName: 'Mère Paillarde',
+      ShipAddress: '43 rue St. Laurent',
+      ShipCity: 'Montréal',
+      ShipRegion: 'Quebec',
+      ShipPostalCode: 'H1J 1C3',
+      ShipCountry: 'Canada',
+      ArriveOnTime: 1,
+    },
+  ];
+  

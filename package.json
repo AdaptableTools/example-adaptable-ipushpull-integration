@@ -2,47 +2,25 @@
   "name": "example-adaptable-ipushpull-integration",
   "private": true,
   "description": "Demo of the Adaptable + IPushPull",
-  "version": "1.0.0",
-  "main": "index.js",
+  "source": "index.html",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel index.html --no-cache",
+    "build": "parcel build index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md,json,html}\""
   },
-  "author": "JonnyAdaptableTools",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AdaptableTools/example-adaptable-ipushpull-integration.git"
-  },
-  "bugs": {
-    "url": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration/issues"
-  },
-  "homepage": "https://github.com/AdaptableTools/example-adaptable-ipushpull-integration#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^19.0.0",
-    "@adaptabletools/adaptable-plugin-ipushpull": "^19.0.0",
-    "@ag-grid-community/client-side-row-model": "^32.1.0",
-    "@ag-grid-community/styles": "^32.1.0",
-    "@ag-grid-community/core": "^32.1.0",
-    "@ag-grid-community/react": "^32.1.0",
-    "@ag-grid-enterprise/charts": "^32.1.0",
-    "@ag-grid-enterprise/clipboard": "^32.1.0",
-    "@ag-grid-enterprise/column-tool-panel": "^32.1.0",
-    "@ag-grid-enterprise/excel-export": "^32.1.0",
-    "@ag-grid-enterprise/filter-tool-panel": "^32.1.0",
-    "@ag-grid-enterprise/menu": "^32.1.0",
-    "@ag-grid-enterprise/range-selection": "^32.1.0",
-    "@ag-grid-enterprise/rich-select": "^32.1.0",
-    "@ag-grid-enterprise/row-grouping": "^32.1.0",
-    "@ag-grid-enterprise/server-side-row-model": "^32.1.0",
-    "@ag-grid-enterprise/side-bar": "^32.1.0",
-    "@ag-grid-enterprise/sparklines": "^32.1.0",
-    "@ag-grid-enterprise/status-bar": "^32.1.0",
-    "ipushpull-js": "^2.18.12"
+    "@adaptabletools/adaptable": "~22.0.0",
+    "@adaptabletools/adaptable-plugin-ipushpull": "~22.0.0",
+    "ag-grid-enterprise": "35.0.1",
+    "parcel": "2.15.4"
   },
+  "keywords": [],
+  "author": "JonnyAdaptableTools",
+  "license": "MIT",
   "devDependencies": {
-    "typescript": "^4.6.4",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.7.1"
+    "buffer": "^6.0.3",
+    "prettier": "^2.7.1",
+    "process": "^0.11.10",
+    "typescript": "4.9.5"
   }
 }
