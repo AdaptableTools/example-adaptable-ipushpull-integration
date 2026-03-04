@@ -53,7 +53,7 @@ const rowData: any[] = [
     CompanyName: 'IBM',
     ContactName: 'Joe Bloggs',
     Employee: 'Mary Shields',
-    InvoicedCost: 32.53,
+    InvoicedCost: 32.55,
   },
 ];
 
