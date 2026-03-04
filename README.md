@@ -8,9 +8,9 @@ The code is using TypeScript for convenience - but it could easily be just JavaS
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com) version 19
-- [AdapTable IPushPull Plugin](https://www.npmjs.com/package/@adaptabletools/adaptable-plugin-ipushpull) version 19
-- [AG Grid](https://www.ag-grid.com) version 32.1
+- [AdapTable](https://www.adaptabletools.com) version 22
+- [AdapTable IPushPull Plugin](https://www.npmjs.com/package/@adaptabletools/adaptable-plugin-ipushpull) version 22
+- [AG Grid](https://www.ag-grid.com) version 35
 
 ## Installation
 
