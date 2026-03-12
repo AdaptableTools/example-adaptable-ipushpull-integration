@@ -4,7 +4,7 @@ import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 import { rowData } from './rowData';
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
-import ippPlugin, { IPushPullPluginOptions } from '@adaptabletools/adaptable-plugin-ipushpull';
+import ipushpullPlugin from '@adaptabletools/adaptable-plugin-ipushpull';
 
 import { columnDefs, defaultColDef } from './columnDefs';
 import { agGridModules } from './agGridModules';
@@ -18,10 +18,10 @@ const adaptableOptions: AdaptableOptions = {
   adaptableId: 'Adaptable iPushpull',
 
   plugins: [
-    ippPlugin({
+    ipushpullPlugin({
       autoLogin: false,
       ippConfig: {
-        api_key: process.env.IPP_API_KEY ?? '',
+        api_key: process.env.IPUSHPULL_API_KEY ?? '',
         api_secret: process.env.IPUSHPULL_API_SECRET ?? '',
       },
     }),
