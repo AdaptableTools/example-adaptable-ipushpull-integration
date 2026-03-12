@@ -4,12 +4,11 @@ import { GridOptions, themeQuartz } from 'ag-grid-enterprise';
 import { rowData } from './rowData';
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
-import ipp from '@adaptabletools/adaptable-plugin-ipushpull';
+import ippPlugin, { IPushPullPluginOptions } from '@adaptabletools/adaptable-plugin-ipushpull';
 
 import { columnDefs, defaultColDef } from './columnDefs';
 import { agGridModules } from './agGridModules';
 
-//@ts-ignore
 const licenseKey = process.env.ADAPTABLE_LICENSE_KEY;
 
 const adaptableOptions: AdaptableOptions = {
@@ -17,24 +16,16 @@ const adaptableOptions: AdaptableOptions = {
   licenseKey,
   userName: 'ipushpull user',
   adaptableId: 'Adaptable iPushpull',
-  /*
+
   plugins: [
-    ipp({
-      throttleTime: 5000,
-      includeSystemReports: true,
-      autoLogin: true,
+    ippPlugin({
+      autoLogin: false,
       ippConfig: {
-        api_url: 'https://www.ipushpull.com/api/1.0',
-        ws_url: 'https://www.ipushpull.com',
-        web_url: 'https://www.ipushpull.com',
-        docs_url: 'https://docs.ipushpull.com',
-        storage_prefix: 'ipp_local',
-        transport: 'polling',
-        hsts: false, // strict cors policy
+        api_key: process.env.IPP_API_KEY ?? '',
+        api_secret: process.env.IPUSHPULL_API_SECRET ?? '',
       },
     }),
   ],
-  */
   initialState: {
     Dashboard: {
       PinnedToolbars: ['Layout', 'IPushPull', 'Export'],

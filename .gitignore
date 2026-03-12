@@ -4,6 +4,7 @@ node_modules/
 .awcache
 .DS_Store
 .env
+.parcel-cache/
 
 # ignore symlink in angular project
 
